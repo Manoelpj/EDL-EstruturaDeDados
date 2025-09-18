@@ -51,10 +51,6 @@ public class PilhaArray implements Pilha{
 
     @Override
     public boolean isEmpty(){
-        if(topo==-1){
-            return true;
-        }else{
-            return false;
-        }
+        return topo==-1;
     }
 }
