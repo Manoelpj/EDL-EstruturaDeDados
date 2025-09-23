@@ -12,49 +12,57 @@ public class PilhaRubroNegra{
         this.array = new Object[capacidade];
     }
 
-    // PUSH \\ feito, obs: talvez a copia deve ter como condicao >= ou <= e nao só < ou >
+    // PUSH \\ 
     public void pushRubro(Object objeto){
-        if((topoRubro+1/*qtd elementos*/) +  (capacidade-topoNegro/*qtd elementos*/) == capacidade){ //pilha cheia
+        if((topoRubro+1/*qtd elementos*/) +  (capacidade-topoNegro/*qtd elementos*/) == capacidade){
             // """Se a pilha rubro mais a pilha negra forem igual a capacidade, quer dizer que o array está cheio""" \\
             Object[] array2 = new Object[capacidade*2]; 
+
             /*Rubro*/
             for(int i=0; i <= topoRubro;i++){
                 array2[i] = array[i];    
             }
+
             /*Negro*/
+            int iNovaCapacidade = capacidade*2 - 1;
             for(int i = capacidade-1; i >= topoNegro; i--){
-                array2[i] = array[i];
+                array2[iNovaCapacidade] = array[i];
+                iNovaCapacidade--;
             }
+
             array = array2;
-            /*Atualizar topoNegro para o array duplicado*/
-            topoNegro-=capacidade;
+            topoNegro = iNovaCapacidade + 1;
             capacidade*=2;
-            //o topoNegro deve voltar a quantidade de casas da capacidade atual antes de dobrar, logo, antes de dobrar a capacidade geral o topo tem que receber topoNegro-= capacidade; para que possamos dobrar a capacidade em capacidade*=2;
+
         }
+
         array[++topoRubro] = objeto;
     }
 
     public void pushNegro(Object objeto){
-        if((topoRubro+1/*qtd elementos*/) +  (capacidade-topoNegro/*qtd elementos*/) >= capacidade){ //pilha cheia
+        if((topoRubro+1/*qtd elementos*/) +  (capacidade-topoNegro/*qtd elementos*/) == capacidade){
             // """Se a pilha rubro mais a pilha negra forem igual a capacidade, quer dizer que o array está cheio""" \\
-            Object[] array2 = new Object[capacidade*2];
+            Object[] array2 = new Object[capacidade*2]; 
+
             /*Rubro*/
             for(int i=0; i <= topoRubro;i++){
                 array2[i] = array[i];    
             }
-                
 
             /*Negro*/
+            int iNovaCapacidade = capacidade*2 - 1;
             for(int i = capacidade-1; i >= topoNegro; i--){
-                array2[i] = array[i];
+                array2[iNovaCapacidade] = array[i];
+                iNovaCapacidade--;
             }
+
             array = array2;
-            /*Atualizar topoNegro para o array duplicado*/
-            topoNegro+=capacidade;
+            topoNegro = iNovaCapacidade + 1;
             capacidade*=2;
-            //o topoNegro deve voltar a quantidade de casas da capacidade atual antes de dobrar, logo, antes de dobrar a capacidade geral o topo tem que receber topoNegro-= capacidade; para que possamos dobrar a capacidade em capacidade*=2;
+
         }
-        array[++topoNegro] = objeto;
+
+        array[--topoNegro] = objeto;
     }
     // PUSH \\
 
@@ -65,67 +73,70 @@ public class PilhaRubroNegra{
         if(topoRubro == -1){
             throw new PilhaVaziaExcecao("A pilha rubro está vazia");
         }
-        if((capacidade - topoNegro) + (topoRubro+1) == capacidade/3){
+        if((capacidade - topoNegro) + (topoRubro+1) <= capacidade/3){
             // """Diminuir tamanho do array pela metade caso as pilhas só consumam um terço do array atual""" \\
             Object[] array2 = new Object[capacidade/2];
+            
             /*Rubro*/
-            for(int i = 0; i < topoRubro;i++){
-                array2[i]=array[i];
+            for(int i = 0; i <= topoRubro; i++){
+                array2[i] = array[i];
             }
+
             /*Negro*/
-            for(int i = capacidade-1; i < topoNegro; i--){
-                array2[i]=array[1];
+            int iNovaCapacidade = capacidade/2 - 1;
+            for(int i = capacidade-1; i >= topoNegro; i--){
+                array2[iNovaCapacidade] = array[i];
+                iNovaCapacidade--;
             }
+
             array = array2;
-            topoNegro-=capacidade;
+            topoNegro = iNovaCapacidade + 1;
             capacidade/=2;
         }
-        // return certo
-        // return array[topoRubro--];
-
-        // testar só
-        Object returnValor = array[topoRubro];
-         array[topoRubro] == null;
-        return returnValor;
+        return array[topoRubro--];
 
     }
     public Object popNegro() throws PilhaVaziaExcecao{
         if(topoNegro == capacidade){
             throw new PilhaVaziaExcecao("A pilha negra está vazia");
         }
-        if((capacidade - topoNegro) + (topoRubro+1) == capacidade/3){
+        if((capacidade - topoNegro) + (topoRubro+1) <= capacidade/3){
             // """Diminuir tamanho do array pela metade caso as pilhas só consumam um terço do array atual""" \\
             Object[] array2 = new Object[capacidade/2];
+
             /*Rubro*/
-            for(int i = 0; i < topoRubro;i++){
+            for(int i = 0; i <= topoRubro;i++){
                 array2[i]=array[i];
             }
+
             /*Negro*/
-            for(int i = capacidade-1; i < topoNegro; i--){
-                array2[i]=array[1];
+            int iNovaCapacidade = capacidade/2 - 1;
+            for(int i = capacidade-1; i >= topoNegro; i--){
+                array2[iNovaCapacidade] = array[i];
+                iNovaCapacidade--;
             }
             array = array2;
-            topoNegro-=capacidade;
+            topoNegro = iNovaCapacidade + 1;
             capacidade/=2;
         }
-        return array[topoNegro--];
+        return array[topoNegro++];
     }
     // POP \\
 
 
 
-    // SIZE \\     //feito, porém com ressalvas
+    // SIZE \\  
     public int sizeRubro(){
         return topoRubro+1;
     }
     public int sizeNegro(){
-        return topoNegro - capacidade; // talvez dê erro aq na quantidade, pode ser capacidade-1 ; testar
+        return capacidade-topoNegro;
     }
     // SIZE \\
 
 
 
-    // TOP \\     //feito
+    // TOP \\ 
     public Object topRubro() throws PilhaVaziaExcecao{
         if(topoRubro == -1){
             throw new PilhaVaziaExcecao("A pilha Rubro está vazia");
@@ -142,7 +153,7 @@ public class PilhaRubroNegra{
 
 
 
-    // ISEMPTY \\     //feito
+    // ISEMPTY \\   
     public boolean isEmptyRubro(){
         return topoRubro == -1;
     }
