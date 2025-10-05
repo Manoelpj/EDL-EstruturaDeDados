@@ -53,4 +53,16 @@ public class PilhaArray implements Pilha{
     public boolean isEmpty(){
         return topo==-1;
     }
+
+
+
+    //métodos extras que envolvem resolver questões das listas\\
+
+    // questao 04 lista 1 de pilha 
+    public void empty(){ //esvazie a pilha descartando todos os seus elementos.
+        topo=-1;
+    }
+
+
+    
 }
