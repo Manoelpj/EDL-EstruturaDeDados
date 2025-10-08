@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class PilhaArray implements Pilha{
     private int capacidade;
     private final int fatorCrescimento;
@@ -20,7 +22,7 @@ public class PilhaArray implements Pilha{
                 capacidade+=fatorCrescimento;
             }
             Object[] array2 = new Object[capacidade];
-            for(int i = 0; i < array.length; i++){
+            for(int i = 0; i <= topo; i++){
                 array2[i] = array[i];
             }
             array = array2;
@@ -51,7 +53,11 @@ public class PilhaArray implements Pilha{
 
     @Override
     public boolean isEmpty(){
-        return topo==-1;
+        return topo == -1;
+    }
+
+    public void sout(){
+        System.out.println(Arrays.toString(array));
     }
 
 
@@ -62,6 +68,19 @@ public class PilhaArray implements Pilha{
     public void empty(){ //esvazie a pilha descartando todos os seus elementos.
         topo=-1;
     }
+
+
+
+
+
+    // questao 07 lista 1 de pilha 
+    public void adicionarPilha(PilhaArray pilha2){ //insira os elementos de uma pilha dentro de outra pilha
+        int tamanhoPilha2 = pilha2.size();
+        for(int i = 0; i < tamanhoPilha2; i++){
+            Object temp = pilha2.pop();
+            push(temp);
+        }
+    } 
 
 
     
