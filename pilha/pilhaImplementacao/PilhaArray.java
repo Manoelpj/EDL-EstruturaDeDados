@@ -70,5 +70,18 @@ public class PilhaArray implements Pilha{
     }
 
 
+
+
+
+    // questao 07 lista 1 de pilha 
+    public void adicionarPilha(PilhaArray pilha2){ //insira os elementos de uma pilha dentro de outra pilha
+        int tamanhoPilha2 = pilha2.size();
+        for(int i = 0; i < tamanhoPilha2; i++){
+            Object temp = pilha2.pop();
+            push(temp);
+        }
+    } 
+
+
     
 }
