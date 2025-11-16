@@ -47,11 +47,11 @@ public class ListaDuplamenteLigada implements Lista{
 
 
     public boolean isFirst(Object objeto){
-
+        return objeto == head.getElemento();
     }    
 
     public boolean isLast(Object objeto){
-
+        return objeto == tail.getElemento();
     }
 
 
