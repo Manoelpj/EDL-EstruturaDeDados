@@ -3,14 +3,16 @@ public interface Lista{
 
     public Object first();
     public Object last();
-    public Object before(Object objeto);
-    public Object after(Object objeto);
+    public Object before(Node no);
+    public Object after(Node no);
 
-    public replaceElements(Node no, Object objeto);
-    public swapElements(Node no, Object objeto);
+    public void replaceElements(Node no, Object objeto);
+    public void swapElements(Node no1, Node no2);
     public void insertBefore(Node no, Object objeto);    
     public void insertAfter(Node no, Object objeto);
-    public Object remove(Node no);
+    public void insertFirst(Object objeto);
+    public void insertLast(Object objeto);
+    public void remove(Node no);
 
     public boolean isFirst(Object objeto);    
     public boolean isLast(Object objeto);
