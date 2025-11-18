@@ -1,3 +1,5 @@
+package lista.listaImplementacao;
+
 public class ListaDuplamenteLigadaMain {
     public static void main(String[] args){
         ListaDuplamenteLigada lista = new ListaDuplamenteLigada();
