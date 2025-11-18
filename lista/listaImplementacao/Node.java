@@ -1,3 +1,5 @@
+package lista.listaImplementacao;
+
 public class Node{
     private Object elemento;
     private Node next;

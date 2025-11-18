@@ -1,3 +1,5 @@
+package lista.listaImplementacao;
+
 public class ListaDuplamenteLigada implements Lista{
     public Node no;
     public Node head, tail;
