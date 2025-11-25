@@ -1,4 +1,4 @@
-package dequeLista;
+package deque.dequeImplementacao.dequeLista;
 
 public class DequeLDL implements Deque {
     public Node no;

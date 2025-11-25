@@ -1,4 +1,4 @@
-package dequeVector;
+package deque.dequeImplementacao.dequeVector;
 
 public interface Deque{
     public void addFirst(Object objeto);

@@ -1,4 +1,4 @@
-package dequeLista;
+package deque.dequeImplementacao.dequeLista;
 
 public class DequeVazioException extends RuntimeException{
     public DequeVazioException(String err){

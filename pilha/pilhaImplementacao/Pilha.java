@@ -1,3 +1,5 @@
+package pilha.pilhaImplementacao;
+
 public interface Pilha{
 
     public void push(Object objeto);

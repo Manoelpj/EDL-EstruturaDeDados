@@ -1,4 +1,4 @@
-package dequeLista;
+package deque.dequeImplementacao.dequeLista;
 
 public interface Deque{
     public void addFirst(Object objeto);

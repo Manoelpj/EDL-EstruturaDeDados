@@ -1,4 +1,4 @@
-package dequeVector;
+package deque.dequeImplementacao.dequeVector;
 
 public class DequeMain{
     public static void main(String[] args){

@@ -1,4 +1,4 @@
-package dequeVector;
+package deque.dequeImplementacao.dequeVector;
 
 import java.util.Vector;
 

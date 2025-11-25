@@ -1,4 +1,4 @@
-package dequeLista;
+package deque.dequeImplementacao.dequeLista;
 
 public class DequeLSLMain{
     public static void main(String[] args){

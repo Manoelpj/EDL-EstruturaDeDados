@@ -1,3 +1,5 @@
+package pilha.pilhaImplementacao;
+
 public class PilhaMainArray{
     public static void main(String[] args){
         PilhaArray pilha = new PilhaArray(10, 0);
