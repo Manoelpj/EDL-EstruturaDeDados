@@ -1,5 +1,6 @@
 1. Implemente uma classe VetorArray, que implemente a interface Vetor (baixe da página da disciplina). Faça uma tabela com os tempos de execução de cada método. Use a implementação da classe java.util.Vector de JAVA.
 
+/resposta: implementado em VetLisSeq/vetor/vetorImplementacao/vetorArray/VetorArray.java
 
 .
 2. Considere o seguinte algoritmo para o método insertAfter(p,e):
@@ -16,9 +17,13 @@ return no2;
 O método está certo? Justifique.
 Dica: Desenhe as referências após cada linha do algoritmo
 
+/resposta:
+
 
 .
 3. Desenvolva um método recursivo public Position find(int i) que retorne a Nó de um inteiro i em uma lista de inteiros. O método deverá disparar a exceção ValueNotFoundException.
+
+
 
 
 .
@@ -29,6 +34,10 @@ Dica: Desenhe as referências após cada linha do algoritmo
 (d) S.remove(S.after(S.first()))
 (e) S.insertAfter(S.last(),d)
 
+/resposta: 
+/(a): insere "a" no final ; (b): insere "b" no inicio ; (c) insere "c" no lugar de "a" e move para a esquerda ; (d) remove depois do first, que é o "c"; (e) insere "d" no final.
+/ [ b , a, d ]
+
 
 .
 5. Considere uma sequência implementada com uma lista duplamente encadeada (os nos são da classe NoSeq) e que possui nós sentinelas que indicam os primeiro e o último elementos. Preencha a linha em branco de uma implementação do método insertBefore em JAVA. Assuma que os nós implementam a interface NóSeq.
@@ -37,10 +46,13 @@ NoSeq temp = new NoSeq();
 temp.setElement(e);
 temp.setNext(p);
 temp.setPrev(p.getPrev());
-_________________________________
+_________________________________ 
 p.setPrev(temp);
 return temp;
 }
+
+/resposta: 
+/p.getPrev().setNext(temp); //faltou setar o nó antes de p apontar para temp
 
 
 .
@@ -49,6 +61,8 @@ return temp;
 
 .
 7. Implemente uma classe VetorLista, que implemente a interface Vetor, e que use como representação interna uma lista duplamente ligada. Faça tabela comparando os tempos de execução das duas implementações do Vetor (array e Lista Encadeada).
+
+/resposta: implementado em VetLisSeq/vetor/vetorImplementacao/vetorLista/VetorLista.java
 
 
 .
@@ -65,6 +79,8 @@ return temp;
 
 .
 11. Adicione o método shrinkToFit() `a sua classe VetorArray, que substitua o array atual por um array exatamente do tamanho do Vetor.
+
+/resposta: implementado em VetLisSeq/vetor/vetorImplementacao/vetorArray/VetorArray.java método shrinkToFit()
 
 
 .
