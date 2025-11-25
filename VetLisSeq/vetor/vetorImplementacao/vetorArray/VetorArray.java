@@ -94,4 +94,23 @@ public class VetorArray implements Vetor{
     public void sout(){
         System.out.println(Arrays.toString(array));
     }
+
+
+    //questão 11 da lista de exercício
+    public void shrinkToFit() throws VetorVazioExpection{
+        if(isEmpty() == true){
+            throw new VetorVazioExpection("O Vetor está vazio");
+        }
+        if(tamanho == capacidade-1){
+            return;
+        }
+        
+        Object[] array2 = new Object[size()];
+        for(int i = 0; i < size(); i++){
+            array2[i] = array[i];
+        }
+        array = array2;
+        capacidade = size();
+
+    }
 }
